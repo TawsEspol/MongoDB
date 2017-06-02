@@ -20,11 +20,27 @@ collection.insert_many(documents)
 
 
 # Cuantos documentos hay en total?
+documents = collection.find({})  # Consulta vacia, retorna todos los documentos
+c = 0
+for doc in documents:
+    c +=1
+print (c)
 
 # Cuantos aeropuertos existen en total?
 
-# Cuantos vuelos en los aeropuertos de Miami ("code": "MIA") estuvieron retrasados (delayed)?
 
-# En que mes de todos los anios en todos los aeropuertos se cancelaron (canceled) mas vuelos?
+# Cuantos vuelos en los aeropuertos de Miami ("code": "MIA") estuvieron retrasados (delayed)?
+consulta = {
+    "airport.code": "MIA"   # Asi se consulta por campos anidados
+}
+documents = collection.find(consulta)
+c = 0
+for doc in documents:
+    # do something...
+print (c)
+
+# En que mes de entre todos los anios en todos los aeropuertos se cancelaron (canceled) mas vuelos?
 
 # Que aerolinea tuvo mas vuelos atrasados? (delayed)
+
+# Que aerolinea es la mejor? (Menor proporcion de vuelos cancelados + atrasados/vuelos totales)
